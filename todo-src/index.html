@@ -28,6 +28,9 @@
       
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
+        <button class="btn btn-success" type="button" ng-init="count=2">
+          Total Tasks: {{count}}
+        </button>
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
           <span>{{do}}</span>
