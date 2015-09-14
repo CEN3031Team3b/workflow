@@ -19,10 +19,21 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
+
+  $scope.clearCompleted = function(){
+    console.log("clearing completed");
+    angular.forEach($scope.isCompleted, function(eachItem){
+
+      if (eachItem == true)
+      {
+        $scope.deleteItem(eachItem) ;
+      }
+
+    });
+  }
     
   
 });
-
 /*************************
  * Homework (not rly):
  * - "enter" button functionality instead of clicking button
