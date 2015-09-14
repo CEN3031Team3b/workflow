@@ -23,7 +23,7 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.count-=1;
   }
 
-  $scope.clearCompleted = function(){
+    $scope.clearCompleted = function(){
     console.log("clearing completed");
     angular.forEach($scope.isCompleted, function(eachItem){
 
@@ -37,14 +37,3 @@ myApp.controller('MainCtrl', function ($scope){
     
   
 });
-/*************************
- * Homework (not rly):
- * - "enter" button functionality instead of clicking button
- * - edit button functionality
- * - button to mark item as "complete"
- * - have a total number of items at the top
- * - make it prettier
- * - add a due date
- * - add reminder (setInterval)
- * 
- * *********************/
