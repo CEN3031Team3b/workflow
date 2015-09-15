@@ -21,7 +21,10 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.completeItem = function(item){
     console.log("in complete");
     var index = $scope.todos.indexOf(item);
-    $scope.isComplete[index] = true;
+    if($scope.isComplete[index] == false)
+      $scope.isComplete[index] = true;
+    else
+      $scope.isComplete[index] = false;
   }
 
   $scope.deleteItem = function(item){
