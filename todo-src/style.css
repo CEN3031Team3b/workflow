@@ -3,6 +3,6 @@ body {
   background: green;
 }
 
-.completedItem {
-	text-decoration: line-through;
+.inline {
+	display: inline;
 }

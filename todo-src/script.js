@@ -36,7 +36,7 @@ myApp.controller('MainCtrl', function ($scope){
   }
 
     $scope.clearCompleted = function(){
-    console.log("clearing completed: total complete array next");
+    console.log("in clearing");
     console.log($scope.isComplete);
     console.log($scope.todos);
 
@@ -57,34 +57,21 @@ myApp.controller('MainCtrl', function ($scope){
     });
 
     console.log("count complete: " + count_complete) ;
-    $scope.todos.length = 0;
-    $scope.isComplete.length = 0;
-    console.log("completed tasks:" + $scope.completedTasks);
+    if ($scope.todos.length > 0 || $scope.isComplete.length >0)
+    {
+    $scope.todos = [];
+    $scope.isComplete = [];      
+    }
+
+    console.log("saved tasks:" + $scope.completedTasks);
     angular.forEach($scope.completedTasks, function(eachItem, index){
         $scope.todos.push(eachItem);
+        $scope.isComplete.push(false);
     });
     $scope.count-=count_complete;
+    $scope.completedTasks.length=0;
     count_complete = 0;
 
   }
-  // $scope.remaining = function() {
-  //   var count_2 = 0;
-  //   angular.forEach($scope.todos, function(todo){
-  //     count_2 += todo.done? 0:1;
-  //   });
-  //   return count;
-  // }
 
-  // $scope.clearCompleted = function() {
-  //   var oldTasks = $scope.todos;
-  //   $scope.todos.length = 0;
-  //   angular.forEach(oldTasks, function(todo){
-  //     if(!todo.done)
-  //     {
-  //       $scope.todos.push(todo);
-  //     }
-  //   });
-  // }
-    
-  
 });
