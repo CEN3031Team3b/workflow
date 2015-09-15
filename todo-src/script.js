@@ -18,12 +18,15 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.newItem = "";
 
 
+  $scope.count = 2;
+  
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
       var newItem = defineString($scope.newItem, "Insert a Priority");
       $scope.todos.push(newItem);
       $scope.newItem = "";
+      $scope.count+=1;
     }
   }
   $scope.changePriority = function(item){
@@ -37,6 +40,7 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.count-=1;
   }
     
   
