@@ -2,3 +2,7 @@
 body {
   background: green;
 }
+
+.inline {
+	display: inline;
+}
