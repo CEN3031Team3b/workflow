@@ -15,7 +15,7 @@
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem" ng-keypress="$event.keyCode == 13 ? addItem() : false">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
@@ -28,9 +28,19 @@
       
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
+        <button class="btn btn-success" type="button" ng-init="count=2">
+          Total Tasks: {{count}}
+        </button>
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
-          <span>{{do}}</span>
+          <div ng-hide="editorEnabled">
+            <span>{{do}}</span>
+            <a href="#" ng-click="editorEnabled=!editorEnabled">Edit</a>
+          </div>
+          <div ng-show="editorEnabled">
+            <input ng-model="do">
+            <a href="#" ng-click="editorEnabled=!editorEnabled">Done</a>
+          </div>    
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>

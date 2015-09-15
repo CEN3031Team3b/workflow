@@ -6,6 +6,7 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.isComplete = [false, false];
   $scope.newItem = "";
+  $scope.count = 2;
   
   $scope.addItem = function(){
     console.log("in add");
@@ -13,6 +14,7 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.todos.push($scope.newItem);
       $scope.newItem = "";
       $scope.isComplete.push(false);
+      $scope.count+=1;
     }
   }
    
@@ -27,6 +29,7 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
     $scope.isComplete.splice(index, 1);
+    $scope.count-=1;
   }
     
   
