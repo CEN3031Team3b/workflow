@@ -14,14 +14,14 @@ myApp.controller('MainCtrl', function ($scope){
     return string
   }
 
-  $scope.todos = [defineString("try", "fail")];
+  $scope.todos = [defineString("try", "Insert a Priority")];
   $scope.newItem = "";
 
 
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
-      var newItem = defineString($scope.newItem, "fail");
+      var newItem = defineString($scope.newItem, "Insert a Priority");
       $scope.todos.push(newItem);
       $scope.newItem = "";
     }
