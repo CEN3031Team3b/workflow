@@ -37,11 +37,20 @@
         </button>
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
-          <span>{{do}}</span>
+          <div ng-hide="editorEnabled">
+            <span>{{do}}</span>
+            <a href="#" ng-click="editorEnabled=!editorEnabled">Edit</a>
+          </div>
+          <div ng-show="editorEnabled">
+            <input ng-model="do">
+            <a href="#" ng-click="editorEnabled=!editorEnabled">Done</a>
+          </div>    
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
-
+          <button class="btn btn-success pull-right" type="button" data-toggle="button" aria-pressed="false" ng-click="completeItem(do)" autocomplete="on">
+            <span class="glyphicon glyphicon-ok " aria-hidden="true"></span>
+          </button>        
         </li>
       </ul>
     </div>

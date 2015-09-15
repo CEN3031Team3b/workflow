@@ -12,6 +12,7 @@ myApp.controller('MainCtrl', function ($scope){
     if ($scope.newItem !== ""){
       $scope.todos.push($scope.newItem);
       $scope.newItem = "";
+      $scope.isComplete.push(false);
       $scope.count+=1;
     }
   }
@@ -20,6 +21,7 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.isComplete.splice(index, 1);
     $scope.count-=1;
   }
 
