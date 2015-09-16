@@ -4,18 +4,18 @@ var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
    var defineString = function (firstString, secondString) {
-    var string = firstString + " Priority: " + secondString;
+    var string = firstString + " / Priority: " + secondString;
     return string;
   }  
   var redefineString = function ( originalString, secondString) {
     var endIndex = originalString.search(" Priority");
     var string = originalString.substring(0, endIndex);
     string = string + " Priority: " + secondString;
-    return string
+    return string;
   }
 
   $scope.todos = [defineString("try", "Insert a Priority")];
-  $scope.todos = ["Learn Angular", "Learn node"];
+  $scope.todos = ["Learn Angular / Priority: ", "Learn node / Priority: "];
   $scope.isComplete = [false, false] ;
   $scope.newItem = "";
 
@@ -39,6 +39,7 @@ myApp.controller('MainCtrl', function ($scope){
     var priority = prompt("What is the priority of this event?");
     var index = $scope.todos.indexOf(item);
     $scope.todos[index] = redefineString($scope.todos[index], priority);
+  }
 
   $scope.completeItem = function(item){
     console.log("in complete");
@@ -93,5 +94,5 @@ myApp.controller('MainCtrl', function ($scope){
     count_complete = 0;
 
   }
-}
+
 });
