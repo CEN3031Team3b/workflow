@@ -21,6 +21,10 @@
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
+            <button class="btn btn-default" type="button" ng-click="clearCompleted(do)">
+              Clear Completed Items
+              <span class="glyphicon" aria-hidden="true"></span>
+            </button>
           </span>
         </div><!-- /input-group -->
         
@@ -49,6 +53,9 @@
         </button>
 
 
+          <button class="btn btn-success pull-right" type="button" data-toggle="button" aria-pressed="false" ng-click="completeItem(do)" autocomplete="on">
+            <span class="glyphicon glyphicon-ok " aria-hidden="true"></span>
+          </button>        
         </li>
       </ul>
     </div>

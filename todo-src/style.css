@@ -1,4 +1,8 @@
 /* Styles go here */
 body {
-  background: green;
+  background: red;
+}
+
+.inline {
+	display: inline;
 }
