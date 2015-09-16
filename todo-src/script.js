@@ -93,5 +93,5 @@ myApp.controller('MainCtrl', function ($scope){
     count_complete = 0;
 
   }
-
+}
 });
