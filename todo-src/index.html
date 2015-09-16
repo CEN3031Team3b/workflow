@@ -7,8 +7,6 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
   </head>
 
   <body ng-app="app">
@@ -23,7 +21,7 @@
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
-            <button class="btn btn-default" type="button" ng-click="clearCompleted()">
+            <button class="btn btn-default" type="button" ng-click="clearCompleted(do)">
               Clear Completed Items
               <span class="glyphicon" aria-hidden="true"></span>
             </button>
@@ -39,21 +37,20 @@
         </button>
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
-          <div ng-hide="editorEnabled" class="inline">
+          <div ng-hide="editorEnabled">
             <span>{{do}}</span>
             <a href="#" ng-click="editorEnabled=!editorEnabled">Edit</a>
           </div>
-          <div ng-show="editorEnabled" class="inline">
+          <div ng-show="editorEnabled">
             <input ng-model="do">
             <a href="#" ng-click="editorEnabled=!editorEnabled">Done</a>
           </div>    
-          
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
-          </button>  
-
-          <input class="pull-left" type="checkbox" data-toggle="toggle" ng-click="completeItem(do)">
-
+          </button>
+          <button class="btn btn-success pull-right" type="button" data-toggle="button" aria-pressed="false" ng-click="completeItem(do)" autocomplete="on">
+            <span class="glyphicon glyphicon-ok " aria-hidden="true"></span>
+          </button>        
         </li>
       </ul>
     </div>
